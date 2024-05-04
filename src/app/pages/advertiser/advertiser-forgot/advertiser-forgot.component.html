@@ -1,0 +1,28 @@
+<div class="login-container">
+  <form action="" class="form">
+    <h1>Advertiser Portal Forgot Password</h1>
+    <input
+      type="text"
+      [(ngModel)]="forgotObj.email"
+      placeholder="email"
+      name="email"
+    />
+    <button type="submit" (click)="onForgot()" class="submit">Submit</button>
+    <div class="registerforgot">
+      <div class="">
+        <button (click)="goto('/agent-driver/login')" class="register-link">
+          <span>Login</span>
+        </button>
+      </div>
+      <span>|</span>
+      <div class="">
+        <button
+          (click)="goto('/agent-driver/register')"
+          class="forgot-password-link"
+        >
+          <span>Register</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,50 @@
+<form
+  class="register-container"
+  [formGroup]="registerForm"
+  (ngSubmit)="submit()"
+>
+  <h1 class="title">Agent Driver Portal Register</h1>
+  <app-user-register-form [parentForm]="registerForm"></app-user-register-form>
+
+  <img
+    *ngFor="let url of images"
+    [src]="url"
+    height="150"
+    width="200px"
+    style="margin: 3px"
+  />
+  <br />
+  <!-- <div class="back-next-div">
+      <button type="submit" (click)="goToPreviousStep()" class="back">
+        Back
+      </button>
+      <button type="submit" (click)="goToNextStep()" class="next">Next</button>
+    </div>
+    <div class="login">
+      <div class="">
+        <a href="#">
+          <span>Back to login</span>
+        </a>
+      </div>
+    </div> -->
+  <!-- End Driver Group   -->
+  <!-- <app-add-vehicle
+    [registerVehicleObj]="registerVehicleObj"
+    (registerSubmit)="onRegister()"
+    [parentGroup]="registerForm"
+  ></app-add-vehicle> -->
+  <div class="form-container">
+    <div class="form-group">
+      <button class="btn btn-success form-control" type="submit">Submit</button>
+    </div>
+    <div class="form-group">
+      <div class="login">
+        <div class="">
+          <a (click)="goto('/admin/login')">
+            <span>Back to login</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

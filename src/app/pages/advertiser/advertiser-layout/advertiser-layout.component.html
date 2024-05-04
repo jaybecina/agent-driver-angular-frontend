@@ -1,0 +1,133 @@
+<!-- SIDEBAR -->
+<section id="sidebar" [ngClass]="status ? 'hide' : ''">
+  <div class="user">
+  <a (click)="onLogout()" class="profile">
+    <img
+      src="https://secure.gravatar.com/avatar/d09eaad01aea86c51b4f892b4f8abf6f?s=100&d=wavatar&r=g"
+    />
+    <div class="user-info">
+      <span class="user-name">Jose Cardillar</span>
+      <span class="user-email">{{ email }}</span>
+    </div>
+  </a>
+</div>
+  <ul class="side-menu top">
+    <li class="active">
+      <a href="#">
+        <i class="bx bxs-home"></i>
+        <span class="text">Home</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#">
+        <i class='bx bx-credit-card-alt'></i>
+        <span class="text">Payment Methods</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class="bx bxs-cog"></i>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-bar-chart-alt' ></i>
+        <span class="text">Statistics</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-question-mark' ></i>
+        <span class="text">FAQ</span>
+      </a>
+    </li>
+    <li>
+      <a (click)="onLogout()" class="logout">
+        <i class='bx bx-log-out-circle' ></i>
+        <span class="text">Logout</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-support' ></i>
+        <span class="text">Support</span>
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-user-plus' ></i>
+        <span class="text">Refer a Friends</span>
+      </a>
+    </li>
+  </ul>
+
+</section>
+<!-- SIDEBAR -->
+
+<!-- CONTENT -->
+<section id="content">
+  <!-- NAVBAR -->
+  <nav>
+    <i (click)="addToggle()" class="bx bx-menu"></i>
+    <span class="nav-link">Home</span>
+    
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- MAIN -->
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>Dashboard</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">Dashboard</a>
+          </li>
+          <li><i class="bx bx-chevron-right"></i></li>
+          <li>
+            <a class="active" href="#">Home</a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 col-sm-4 mb-3 mb-sm-0">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Recent Earnings</h5>
+            <div class="row card-wrap">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="e-total">$80</div>
+                    <div class="e-text">Income</div>
+                  </div>
+
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div class="e-miles">400</div>
+                      <div class="e-text">Miles</div>
+                  </div>
+            </div>
+
+             <h5 class="card-title">Weekly Graph </h5>
+             <div class="graph">
+              <img src="https://www.researchgate.net/publication/346029996/figure/fig3/AS:959943729479681@1605879828060/Trust-region-for-the-constraint-g-1.ppm" alt="">
+             </div>
+
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked><br>
+                <label class="form-check-label" for="flexSwitchCheckChecked">When you drive, Turn it on</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    
+  </main>
+  <!-- MAIN -->
+</section>
+<!-- CONTENT -->

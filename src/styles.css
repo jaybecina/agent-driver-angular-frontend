@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "ngx-toastr/toastr";
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --poppins: "Poppins", sans-serif;
+  --lato: "Lato", sans-serif;
+
+  --light: #f9f9f9;
+  --blue: #3c91e6;
+  --light-blue: #cfe8ff;
+  --grey: #eee;
+  --dark-grey: #aaaaaa;
+  --dark: #342e37;
+  --red: #db504a;
+  --yellow: #ffce26;
+  --light-yellow: #fff2c6;
+  --orange: #fd7238;
+  --light-orange: #ffe0d3;
+  --bg: #151c2c;
+  --bgSoft: #182237;
+  --text: white;
+  --textSoft: #b7bac1;
+  --textLink: #1370cb;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body.dark {
+  --light: #0c0c1e;
+  --grey: #060714;
+  --dark: #fbfbfb;
+}
+
+body {
+  background: var(--grey);
+  overflow-x: hidden;
+  /* background-color: var(--bg);
+  color: var(--text); */
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--textLink);
+  cursor: pointer;
+}
+
+li {
+  color: inherit;
+  list-style: none;
+}
+
+/* ngx intl input */
+.iti {
+  box-sizing: border-box;
+
+  .iti__flag-container .dropdown-menu.country-dropdown {
+    display: none;
+  }
+
+  .iti__flag-container.open .dropdown-menu.country-dropdown {
+    display: block;
+    inset: 100% auto auto 0px;
+    transform: translateY(0px);
+
+    position: absolute;
+    z-index: 1000;
+    float: left;
+    min-width: 10rem;
+    margin: 0.125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border-radius: 0.25rem;
+  }
+
+  .tooltip {
+    display: block;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1070;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: 0.875rem;
+
+    & .arrow {
+      position: absolute;
+      display: block;
+      width: 0.8rem;
+      height: 0.4rem;
+
+      &:before {
+        position: absolute;
+        content: "";
+        border-color: transparent;
+        border-style: solid;
+      }
+    }
+    &.show {
+      opacity: 0.9;
+    }
+  }
+
+  .bs-tooltip-top {
+    padding: 0.4rem 0;
+
+    &.tooltip .arrow:before {
+      top: 0;
+      border-width: 0.4rem 0.4rem 0;
+      border-top-color: #000;
+    }
+
+    & .arrow {
+      bottom: 0;
+    }
+  }
+
+  .tooltip-inner {
+    max-width: 200px;
+    padding: 0.25rem 0.5rem;
+    color: #fff;
+    text-align: center;
+    background-color: #000;
+    border-radius: 0.25rem;
+  }
+}

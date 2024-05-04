@@ -1,0 +1,40 @@
+<div class="resubmit-container">
+  <form
+    action=""
+    class="form"
+    [formGroup]="resubmitImageForm"
+    (ngSubmit)="submit()"
+  >
+    <h1 class="title">Agent Driver Resubmission Image</h1>
+    <div class="form-group">
+      <label for="images">Upload Image</label>
+      <input
+        formControlName="images"
+        id="images"
+        type="file"
+        class="form-control"
+        multiple=""
+        (change)="onFileChange($event)"
+      />
+      <div
+        *ngIf="f['images'].touched && f['images'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['images'].errors && f['images'].errors['required']">
+          Image is required.
+        </div>
+      </div>
+    </div>
+
+    <img
+      *ngFor="let url of previewImages"
+      [src]="url"
+      height="150"
+      width="200px"
+      style="margin: 3px"
+    />
+    <div class="form-group">
+      <button class="btn btn-success form-control" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,56 @@
+<form class="payment-container" [formGroup]="paymentForm" (ngSubmit)="submit()">
+  <h1 class="title">Agent Driver Portal Register</h1>
+
+  <span class="subtitle">
+    Credit Card or Debit Visa, Mastercard, Diners Club, Discover, American
+    Express
+  </span>
+
+  <app-payment-form
+    [parentForm]="paymentForm"
+    *ngIf="currentStep === 0"
+  ></app-payment-form>
+
+  <app-screen-install-form
+    [parentForm]="paymentForm"
+    *ngIf="currentStep === 1"
+  ></app-screen-install-form>
+
+  <!-- <div class="product-price">$200.00</div>
+  <button type="submit" (click)="onRedirectToPayment()" class="checkout-btn">
+    Checkout
+  </button> -->
+  <div class="form-container">
+    <div
+      class="back-next-div"
+      [ngStyle]="{
+        'justify-content': currentStep === 0 ? 'flex-end' : 'space-between'
+      }"
+    >
+      <ng-container *ngIf="currentStep === 1">
+        <button (click)="previousStep($event)" class="btn btn-primary back">
+          Back
+        </button>
+      </ng-container>
+      <ng-container *ngIf="currentStep === 0">
+        <button (click)="nextStep($event)" class="btn btn-primary next">
+          Next
+        </button>
+      </ng-container>
+      <button
+        type="submit"
+        *ngIf="currentStep === 1"
+        class="btn btn-success submit"
+      >
+        Submit
+      </button>
+    </div>
+    <div class="login">
+      <div class="">
+        <a (click)="goto('/agent-driver/login')">
+          <span>Back to login</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,36 @@
+<div class="login-container">
+  <form action="" class="form">
+    <h1 class="title">Agent Driver Portal Login</h1>
+    <input
+      type="text"
+      [(ngModel)]="loginObj.email"
+      placeholder="email"
+      class="form-control"
+      name="email"
+    />
+    <input
+      type="password"
+      [(ngModel)]="loginObj.password"
+      placeholder="password"
+      class="form-control"
+      name="password"
+    />
+    <button type="submit" (click)="onLogin()" class="submit">Login</button>
+    <div class="registerforgot">
+      <div class="">
+        <button (click)="goto('/agent-driver/register')" class="register-link">
+          <span>Register</span>
+        </button>
+      </div>
+      <span>|</span>
+      <div class="">
+        <button
+          (click)="goto('/agent-driver/forgot')"
+          class="forgot-password-link"
+        >
+          <span>Forgot Password</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,63 @@
+<form
+  class="register-container"
+  [formGroup]="registerForm"
+  (ngSubmit)="submit()"
+>
+  <h1 class="title">Agent Driver Portal Register</h1>
+  <app-user-register-form
+    *ngIf="currentStep === 0"
+    [parentForm]="registerForm"
+  ></app-user-register-form>
+
+  <app-driver-register-form
+    *ngIf="currentStep === 1"
+    [parentForm]="registerForm"
+    (imagesData)="onImagesSelect($event)"
+  ></app-driver-register-form>
+
+  <div class="form-container">
+    <div
+      class="back-next-div"
+      [ngStyle]="{
+        'justify-content': currentStep === 0 ? 'flex-end' : 'space-between'
+      }"
+    >
+      <ng-container *ngIf="currentStep === 1">
+        <button (click)="previousStep($event)" class="btn btn-primary back">
+          Back
+        </button>
+      </ng-container>
+      <ng-container *ngIf="currentStep === 0">
+        <button (click)="nextStep($event)" class="btn btn-primary next">
+          Next
+        </button>
+      </ng-container>
+      <button
+        type="submit"
+        *ngIf="currentStep === 1"
+        class="btn btn-success submit"
+      >
+        Submit
+      </button>
+    </div>
+    <div class="login">
+      <div class="">
+        <a (click)="goto('/agent-driver/login')">
+          <span>Back to login</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="form-group">
+    <button class="btn btn-success form-control" type="submit">Submit</button>
+  </div>
+  <div class="form-group">
+    <div class="login">
+      <div class="">
+        <a href="#">
+          <span>Back to login</span>
+        </a>
+      </div>
+    </div>
+  </div> -->
+</form>

@@ -1,0 +1,37 @@
+<div class="otp-container">
+  <form
+    action=""
+    class="form"
+    [formGroup]="otpVerifyForm"
+    (ngSubmit)="submit()"
+  >
+    <h1 class="title">Verfication Code</h1>
+    <div class="subtitle">
+      <span
+        >We’ve sent your 6 digit code to verify that it is really you via Sms.
+        Please enter the code below.</span
+      >
+    </div>
+    <!-- <input type="text" id="otp" formControlName="otp" name="otp" /> -->
+    <ngx-otp-input
+      [config]="{
+        otpLength: 6,
+        numericInputMode: true,
+        autofocus: true
+      }"
+      (otpChange)="handeOtpChange($event)"
+      (fill)="handleFillEvent($event)"
+    ></ngx-otp-input>
+    <div
+      *ngIf="f['otp'].touched && f['otp'].invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="f['otp'].errors && f['otp'].errors['required']">
+        OTP is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success form-control" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

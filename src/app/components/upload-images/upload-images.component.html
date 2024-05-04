@@ -1,0 +1,30 @@
+<div class="form-container">
+  <div class="form-group">
+    <label for="images">Upload Image of Driver's License</label>
+    <input
+      formControlName="images"
+      id="images"
+      type="file"
+      class="form-control"
+      multiple
+      (change)="onFileChange($event)"
+    />
+    <div
+      *ngIf="f['images'].touched && f['images'].invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="f['images'].errors && f['images'].errors['required']">
+        Image is required.
+      </div>
+    </div>
+  </div>
+  <div class="form-group preview-images-list">
+    <img
+      *ngFor="let url of previewImages"
+      [src]="url"
+      height="150"
+      width="200"
+      style="margin: 3px"
+    />
+  </div>
+</div>

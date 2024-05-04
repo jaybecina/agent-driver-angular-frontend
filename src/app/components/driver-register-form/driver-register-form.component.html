@@ -1,0 +1,130 @@
+<div class="form-container" [formGroup]="parentForm">
+  <h1 class="sub-title">Car Details</h1>
+  <div class="form-group">
+    <label>Drivers License</label>
+    <input
+      type="text"
+      placeholder="Drivers License"
+      formControlName="dl"
+      name="dl"
+      class="form-control"
+      required
+    />
+    <div *ngIf="f['dl'].touched && f['dl'].invalid" class="alert alert-danger">
+      <div *ngIf="f['dl'].errors && f['dl'].errors['required']">
+        Drivers License is required.
+      </div>
+      <div *ngIf="f['dl'].errors && f['dl'].errors['minlength']">
+        Drivers License should be 3 character.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>SSN</label>
+    <input
+      type="text"
+      placeholder="SSN"
+      formControlName="ssn"
+      name="ssn"
+      class="form-control"
+      required
+    />
+    <div
+      *ngIf="f['ssn'].touched && f['ssn'].invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="f['ssn'].errors && f['ssn'].errors['required']">
+        SSN is required.
+      </div>
+      <div *ngIf="f['ssn'].errors && f['ssn'].errors['minlength']">
+        SSN should be 3 character.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>License Plate</label>
+    <input
+      type="text"
+      placeholder="License Plate"
+      formControlName="lp"
+      name="lp"
+      class="form-control"
+      required
+    />
+    <div *ngIf="f['lp'].touched && f['lp'].invalid" class="alert alert-danger">
+      <div *ngIf="f['lp'].errors && f['lp'].errors['required']">
+        License Plate is required.
+      </div>
+      <div *ngIf="f['lp'].errors && f['lp'].errors['minlength']">
+        License Plate should be 3 character.
+      </div>
+    </div>
+  </div>
+
+  <app-vehicle-register-form
+    [parentForm]="parentForm"
+  ></app-vehicle-register-form>
+
+  <app-upload-images
+    [parentForm]="parentForm"
+    (imagesData)="onImagesSelect($event)"
+  ></app-upload-images>
+
+  <div class="form-group">
+    <label>How many hours do you spend driving?</label>
+    <input
+      type="number"
+      placeholder="Enter value ex. 10-20"
+      formControlName="driveHours"
+      name="driveHours"
+      class="form-control"
+      required
+    />
+    <div
+      *ngIf="f['driveHours'].touched && f['driveHours'].invalid"
+      class="alert alert-danger"
+    >
+      <div *ngIf="f['driveHours'].errors && f['driveHours'].errors['required']">
+        Drive Hours is required.
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>You are employed by any driving companies?</label>
+    <input
+      type="text"
+      placeholder="Enter company name (Optional)"
+      formControlName="employedDC"
+      name="employedDC"
+      class="form-control"
+    />
+  </div>
+  <div class="form-group">
+    <label>Preferred Location</label>
+    <input
+      type="text"
+      placeholder="Preferred Location"
+      formControlName="preferredLoc"
+      name="preferredLoc"
+      class="form-control"
+      required
+    />
+    <div
+      *ngIf="f['preferredLoc'].touched && f['preferredLoc'].invalid"
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="f['preferredLoc'].errors && f['preferredLoc'].errors['required']"
+      >
+        Preferred Location is required.
+      </div>
+      <div
+        *ngIf="
+          f['preferredLoc'].errors && f['preferredLoc'].errors['minlength']
+        "
+      >
+        Preferred Location should be 3 character.
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="otp-container">
+  <form action="" class="form" [formGroup]="phoneForm" (ngSubmit)="submit()">
+    <h1 class="title">Enter your Phone Number</h1>
+    <div class="subtitle">
+      <span
+        >Please make sure to use your current active phone number. We will be
+        sending some verification code to continue.</span
+      >
+    </div>
+    <div class="form-group otp-input-div">
+      <div style="width: 100%; height: 56px; border-radius: 10px">
+        <intl-telephone-input
+          [preferredCountries]="[
+            CountryISO.UnitedStates,
+            CountryISO.India,
+            CountryISO.Philippines
+          ]"
+          [enablePlaceholder]="true"
+          [searchCountryFlag]="true"
+          [separateDialCode]="false"
+          [enableAutoCountrySelect]="true"
+          [searchCountryField]="SearchCountryField.All"
+          [phoneValidation]="false"
+          [numberFormat]="PhoneNumberFormat.International"
+          [inputId]="'phone'"
+          (onChange)="onInputChange($event)"
+          style="width: 100%; height: 56px"
+        >
+        </intl-telephone-input>
+      </div>
+
+      <div
+        *ngIf="f['phone'].touched && f['phone'].invalid"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['phone'].errors && f['phone'].errors['required']">
+          Phone Number is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group submit-div">
+      <button class="btn btn-success submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
